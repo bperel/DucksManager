@@ -81,25 +81,24 @@
   </ul>
 </template>
 
-<script>
-import NavigationItemGroup from "../components/NavigationItemGroup";
-import NavigationItem from "../components/NavigationItem";
-import l10nMixin from "../mixins/l10nMixin";
+<script lang="ts">
 
-export default {
-  name: "Navigation",
+import { Component, Mixins } from 'vue-property-decorator'
+import L10nMixin from "../mixins/l10nMixin.ts";
 
-  components: {
-    NavigationItemGroup,
-    NavigationItem
-  },
+@Component
+export default class Navigation extends Mixins(L10nMixin) {
+  components!: {
+    NavigationItemGroup: any,
+    NavigationItem: any,
+  }
 
-  mixins: [l10nMixin],
-
-  computed: {
-    username: () => window.username,
-    imagePath: () => window.imagePath,
-  },
+  get username() : string {
+    return (window as any).username
+  }
+  get imagePath() : string {
+    return (window as any).imagePath
+  }
 }
 </script>
 

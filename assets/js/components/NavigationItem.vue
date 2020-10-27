@@ -7,26 +7,26 @@
   </li>
 </template>
 
-<script>
-export default {
-  name: "NavigationItem",
-  props: {
-    path: {type: String, required: true},
-    icon: {type: String, default: null}
-  },
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
-  computed: {
-    active() {
-      return !this.path.split('/')
-        .find(pathPart =>
-          !window.location.pathname.split('/').includes(pathPart)
-        )
-    }
-  },
+@Component
+export default class NavigationItem extends Vue {
+  @Prop({ required: true})
+  path!: string
 
-  methods: {
-    getLink: path => path.indexOf('/') === 0 ? path : `/?action=${path}`
+  @Prop({ required: true})
+  icon!: string
+
+
+  get active() : boolean {
+    return !this.path.split('/')
+    .find(pathPart =>
+      !window.location.pathname.split('/').includes(pathPart)
+    )
   }
+
+  getLink = (path: string) => path.indexOf('/') === 0 ? path : `/?action=${path}`;
 }
 </script>
 
