@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import axios from "axios";
 import {coaCache} from "../../util/cache"
 
@@ -57,7 +56,7 @@ export default {
       state.issueNumbers = {...state.issueNumbers, ...issueNumbers}
     },
     setIssueDetails(state, {issueCode, issueDetails}) {
-      Vue.set(state.issueDetails, issueCode, issueDetails)
+      state.issueDetails[issueCode] = issueDetails
     },
     setIssueCounts(state, issueCounts) {
       state.issueCounts = issueCounts

@@ -96,7 +96,7 @@ export default {
 .popover  {
   width: 150px;
 
-  ::v-deep .popover-body {
+  ::v-deep(.popover-body) {
     padding: 0;
 
     .cover {

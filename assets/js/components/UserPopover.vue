@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep .popover-body {
+::v-deep(.popover-body) {
   font-size: 1rem;
 }
 

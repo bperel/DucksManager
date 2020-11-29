@@ -97,7 +97,7 @@ span {
     position: relative;
     margin: 20px 0;
 
-    ::v-deep .wrapper {
+    ::v-deep(.wrapper) {
       &.left, &.right {
         top: -15px;
       }

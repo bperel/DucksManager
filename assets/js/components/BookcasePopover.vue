@@ -64,11 +64,11 @@ export default {
     padding-left: 0;
   }
 
-  ::v-deep .bookcase {
+  ::v-deep(.bookcase) {
     margin-top: 0 !important;
   }
 
-  ::v-deep .issue{
+  ::v-deep(.issue) {
     padding: 0 10px;
   }
 </style>

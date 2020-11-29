@@ -68,8 +68,9 @@
             >
             <button
               class="btn btn-default"
-              @click="createPurchaseDate()
-                      newPurchaseDescription = newPurchaseDate = null
+              @click="createPurchaseDate();
+                      newPurchaseDescription = null;
+                      newPurchaseDate = null;
                       newPurchaseContext = false"
             >
               {{ l10n.CREER }}

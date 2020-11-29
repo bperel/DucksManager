@@ -1,4 +1,4 @@
-import Vue from "vue";
+import {createApp} from 'vue'
 import App from "./layouts/App"
 import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 import store from "./store"
@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '../css/app.scss';
 
-new Vue({
+const app = createApp({
   store,
   render(createElement) {
     const vm = this
@@ -29,5 +29,5 @@ new Vue({
   }
 }).$mount('#app')
 
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+app.use(BootstrapVue)
+app.use(BootstrapVueIcons)

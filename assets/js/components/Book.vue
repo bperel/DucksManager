@@ -303,7 +303,7 @@ export default {
     .card-header {
       text-align: center;
 
-      ::v-deep a {
+      ::v-deep(a) {
         color: #666;
       }
 
@@ -317,11 +317,11 @@ export default {
       width: 100%;
     }
 
-    ::v-deep .tab-content {
+    ::v-deep(.tab-content) {
       display: none;
     }
 
-    ::v-deep :not(.has-image) {
+    ::v-deep(:not(.has-image)) {
       a {
         cursor: default;
       }

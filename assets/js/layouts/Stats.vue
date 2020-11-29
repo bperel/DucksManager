@@ -188,11 +188,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep canvas {
+::v-deep(canvas) {
   background-color: white;
 }
 
-::v-deep .btn {
+::v-deep(.btn) {
   &:focus {
     box-shadow: none !important;
   }

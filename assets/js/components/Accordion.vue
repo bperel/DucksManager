@@ -51,11 +51,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep a {
+::v-deep(a) {
   color: grey;
 }
 
-::v-deep .card-body {
+::v-deep(.card-body) {
   padding: 0.5rem;
 }
 </style>

@@ -126,6 +126,18 @@ export default {
 
     spriteClass() {
       return this.id && this.spritePath ? `edges-${this.publicationCode.replaceAll('/', '-')}-${this.issueNumber}` : ''
+    },
+
+    isLoaded() {
+      return this.imageLoaded || this.spriteLoaded
+    }
+  },
+
+  watch: {
+    isLoaded(newValue) {
+      if (newValue) {
+        this.$emit('loaded', [this.id])
+      }
     }
   },
 
@@ -138,6 +150,14 @@ export default {
   methods: {
     ...mapMutations("bookcase", ["addLoadedSprite"]),
     async onImageLoad({target}) {
+      console.log(target.naturalWidth)
+      let a = 0
+      const interval = setInterval(() => {
+        a++
+        if (a > 5) {
+          clearInterval(interval)
+        }
+      }, 5)
       if (this.spritePath && !this.ignoreSprite) {
         if (this.loadedSprites[this.spritePath]) {
           this.loadEdgeFromSprite()
@@ -158,7 +178,6 @@ export default {
         this.width=target.naturalWidth
         this.height=target.naturalHeight
         this.imageLoaded = true
-        this.$emit('loaded', [this.id])
       }
     },
 
@@ -170,11 +189,12 @@ export default {
       const vm = this
       let retries = 0
       const checkWidthInterval = setInterval(() => {
+        console.log(this.publicationCode + ' ' + this.issueNumber+ ': retries='+retries)
         if (vm.$refs.edge.clientWidth > 0) {
+          console.log(vm.$refs.edge.clientWidth+'px')
           vm.spriteLoaded = true
           vm.width = vm.$refs.edge.clientWidth
           vm.height = vm.$refs.edge.clientHeight
-          vm.$emit('loaded', [this.id])
           clearInterval(checkWidthInterval)
         }
         else if (retries > 100) {
@@ -189,7 +209,7 @@ export default {
         this.ignoreSprite = true
       }
       else {
-        this.$emit('loaded', [this.id])
+        this.imageLoaded = true
       }
     },
   }

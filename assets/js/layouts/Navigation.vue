@@ -117,7 +117,7 @@ export default {
   background-position: bottom;
 }
 
-::v-deep ul, li {
+::v-deep(ul, li) {
   background-color: #3d4b5f;
   list-style: none;
   padding: 0;
@@ -149,7 +149,7 @@ export default {
   }
 }
 
-::v-deep li {
+::v-deep(li) {
   .sub-menu li:hover {
     background-color: #020203;
   }
@@ -192,7 +192,7 @@ export default {
 
 
 @media (max-width: 767px) {
-  ::v-deep li.empty {
+  ::v-deep(li.empty) {
     display: none;
   }
 }

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import axios from "axios";
 
 export default {
@@ -15,7 +14,7 @@ export default {
 
   mutations: {
     addLoadedSprite(state, {spritePath, css}) {
-      Vue.set(state.loadedSprites, spritePath, css)
+      state.loadedSprites[spritePath] = css
     },
     setBookcase(state, bookcase) {
       state.bookcase = bookcase
